@@ -159,12 +159,11 @@ sup {
 }
 
 a {
-    color: #3490dc;
+    color: #000000;
     text-decoration: none;
     background-color: transparent;
 }
 a:hover {
-    color: #1d68a7;
     text-decoration: underline;
 }
 
@@ -596,6 +595,15 @@ pre code {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+}
+
+.col-md-4 {
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+}
+
+.col-md-4 a {
+    text-decoration: underline;
 }
 
 .col {
@@ -4749,6 +4757,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .jumbotron {
     padding: 2rem 1rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     background-color: #e9ecef;
     border-radius: 0.3rem;
@@ -4757,6 +4766,11 @@ a.badge-dark:focus, a.badge-dark.focus {
     .jumbotron {
         padding: 4rem 2rem;
     }
+}
+
+.jumbotron h1{
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 
 .jumbotron-fluid {
