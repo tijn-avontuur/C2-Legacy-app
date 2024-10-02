@@ -22,5 +22,9 @@ return [
 'view_manual' => "Bekijk direct je handleiding",
 'view_manual_alt' => "Bekijk direct je handleiding",
 'all_brands' => "Alle merken",
+'about_us_title' => "Over ons",
+'about_us' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur ducimus explicabo molestias quia tempora? Alias, aperiam dolor eaque itaque iusto quas quia. Architecto corporis, deserunt id laudantium maiores minima porro!",
+'contact' => "Contact",
+'socials' => "Socials",
 
 ];

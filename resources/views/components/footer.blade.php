@@ -1,7 +1,26 @@
 
 <footer class="bg-dark">
     <div class="container">
-	    © {{ __('misc.copyright') }}
+        <div class="row">
+            <div class="col-sm-4">
+                <p>{{ __('misc.about_us_title') }}</p>
+                <p>{{ __('misc.about_us') }}</p>
+            </div>
+
+            <div class="col-sm-4">
+                <p>{{ __('misc.contact') }}</p>
+                <p>contact@example.com</p>
+                <p>+31 6 12 34 56 78</p>
+            </div>
+
+            <div class="col-sm-4">
+                <p>{{ __('misc.socials') }}</p>
+                <p>Twitter</p>
+                <p>Instagram</p>
+            </div>
+        </div>
+
+        <div class="text-center">© {{ __('misc.copyright') }}</div>
     </div>
 </footer>
 
