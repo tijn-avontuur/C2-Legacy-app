@@ -13,17 +13,31 @@
 
     <p>{{ __('introduction_texts.type_list', ['brand'=>$brand->name]) }}</p>
 
+    <?php
+    $size = count($manuals);
+    $columns = 3;
+    $chunk_size = ceil($size / $columns);
+    ?>
 
-        @foreach ($manuals as $manual)
+    <div class="container">
+        <div class="row">
+            @foreach ($manuals->chunk($chunk_size) as $chunk)
+                <div class="col-md-4">
 
-            @if ($manual->locally_available)
-                <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-                ({{$manual->filesize_human_readable}})
-            @else
-                <a href="{{ $manual->url }}" target="new" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-            @endif
+                    @foreach($chunk as $manual)
+                        @if ($manual->locally_available)
+                            <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+                            ({{$manual->filesize_human_readable}})
+                        @else
+                            <a href="{{ $manual->url }}" target="new" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+                        @endif
 
-            <br />
-        @endforeach
+                        <br/>
+                    @endforeach
+
+                </div>
+            @endforeach
+        </div>
+    </div>
 
 </x-layouts.app>
