@@ -19,7 +19,7 @@
         <ul>
             @foreach($topManuals as $manual)
                 <li>
-                    <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/">{{ $manual->name }}</a> ({{ $manual->views }} views)
+                    <a href="#">{{ $manual->name }}</a> ({{ $manual->views }} views)
                 </li>
             @endforeach
         </ul>
