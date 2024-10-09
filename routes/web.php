@@ -26,6 +26,7 @@ If we want to add product categories later:
 Productcat:		/category/12/Computers/
 */
 
+use App\Models\Manual;
 use App\Models\Brand;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\BrandController;
@@ -39,7 +40,8 @@ use App\Http\Controllers\LocaleController;
 Route::get('/', function () {
     $brands = Brand::all()->sortBy('name');
     $name = 'Tijn';
-    return view('pages.homepage', compact('brands', 'name'));
+    $topManuals = Manual::with('brand')->orderBy('views', 'desc')->take(10)->get();
+    return view('pages.homepage', compact('brands', 'name', 'topManuals'));
 })->name('home');
 
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);

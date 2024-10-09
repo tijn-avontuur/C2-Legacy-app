@@ -20,6 +20,21 @@
 
     <div class="container">
         <a>Voor ticket 4: {{ $name }}</a>
+        <!-- Top 10 Viewed Manuals Section -->
+        <div class="top-manuals">
+            <h2>{{ __('misc.top_10_viewed_manuals') }}</h2>
+            <ul>
+                @foreach($topManuals as $manual)
+                    @if($manual->brand)
+                        <li>
+                            <a href="/{{ $manual->brand->id }}/{{ $manual->brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/">{{ $manual->name }}</a> ({{ $manual->views }} views)
+                        </li>
+                    @else
+                        <li>Brand not found for manual: {{ $manual->name }}</li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
         <!-- Example row of columns -->
         <div class="row">
             @foreach($brands->chunk($chunk_size) as $chunk)
