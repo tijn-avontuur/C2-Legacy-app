@@ -9,6 +9,7 @@
 
             <div class="col-sm-4">
                 <p>{{ __('misc.contact') }}</p>
+                <a href="/contact/">{{ __('misc.contact_form') }}</a>
                 <p>contact@example.com</p>
                 <p>+31 6 12 34 56 78</p>
             </div>
