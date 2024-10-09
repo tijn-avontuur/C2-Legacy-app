@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <p>{{ __('misc.about_us_title') }}</p>
-                <p>{{ __('misc.about_us') }}</p>
+                <p>Welkom bij onze webpagina voor handleidingen. Wij zijn de meest grote experts op dit grondgebied. Als u iets zoekt, hebben wij het. Als wij het niet hebben, jammer dan.</p>
             </div>
 
             <div class="col-sm-4">
@@ -14,9 +14,9 @@
             </div>
 
             <div class="col-sm-4">
-                <p>{{ __('misc.socials') }}</p>
-                <p>Twitter</p>
-                <p>Instagram</p>
+                <a href="#">{{ __('misc.socials') }}</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
             </div>
         </div>
 
