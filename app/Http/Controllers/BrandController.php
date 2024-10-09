@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -12,15 +11,17 @@ class BrandController extends Controller
     {
         $brand = Brand::findOrFail($brand_id);
         $manuals = Manual::where('brand_id', $brand_id)->get();
+        $topManuals = Manual::where('brand_id', $brand_id)->orderBy('views', 'desc')->take(5)->get();
 
         // Increment the views column for each manual
         foreach ($manuals as $manual) {
             $manual->increment('views');
         }
 
-        return view('pages/manual_list', [
+        return view('pages.manual_list', [
             "brand" => $brand,
-            "manuals" => $manuals
+            "manuals" => $manuals,
+            "topManuals" => $topManuals
         ]);
     }
 }
