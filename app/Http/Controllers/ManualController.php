@@ -8,17 +8,17 @@ use App\Models\Manual;
 
 class ManualController extends Controller
 {
-    public function show($brand_id, $brand_slug, $manual_id )
+    public function show($brand_id, $brand_slug, $manual_id)
     {
         $brand = Brand::findOrFail($brand_id);
         $manual = Manual::findOrFail($manual_id);
 
-        $views = $manual->views;
+        // Increment the views column
+        $manual->increment('views');
 
-        return view('pages/manual_view', [
-            "manual" => $manual,
-            "brand" => $brand,
-            "views" => $views
+        return view('pages.manual_view', [
+            'manual' => $manual,
+            'brand' => $brand,
         ]);
     }
 }
