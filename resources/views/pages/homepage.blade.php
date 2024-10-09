@@ -37,28 +37,22 @@
         </div>
         <!-- Example row of columns -->
         <div class="row">
-            @foreach($brands->chunk($chunk_size) as $chunk)
+            @foreach($brands->groupBy('category') as $category => $brandsInCategory)
                 <div class="col-md-4">
-                    <ul>
-                        @foreach($chunk as $brand)
-                            <?php
-                            $current_first_letter = strtoupper(substr($brand->name, 0, 1));
-                            if (!isset($header_first_letter) || (isset($header_first_letter) && $current_first_letter != $header_first_letter)) {
-                            echo '</ul>';
-                        ?>
-                        <h2 id="{{ $current_first_letter }}">{{ $current_first_letter }}</h2>
+                    <h2>{{ $category }}</h2>
+                    @foreach($brandsInCategory->groupBy(function($brand) {
+                        return strtoupper(substr($brand->name, 0, 1));
+                    }) as $firstLetter => $brandsByLetter)
+                        <h3 id="{{ $firstLetter }}">{{ $firstLetter }}</h3>
                         <ul>
-                        <?php
-                            }
-                            $header_first_letter = $current_first_letter;
-                            ?>
-                            <li>
-                                <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/">{{ $brand->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
+                            @foreach($brandsByLetter as $brand)
+                                <li>
+                                    <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/">{{ $brand->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endforeach
                 </div>
-                <?php unset($header_first_letter); ?>
             @endforeach
         </div>
     </div>
