@@ -7,3 +7,8 @@
         {{ $introduction_text ?? '' }}
     </div>
 </div>
+<div class="brand-selection">
+    @foreach(range('A', 'Z') as $letter)
+<a href="#{{ $letter }}">{{ $letter }}</a>
+    @endforeach
+</div>

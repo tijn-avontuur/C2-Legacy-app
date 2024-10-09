@@ -29,9 +29,11 @@
                             <?php
                             $current_first_letter = strtoupper(substr($brand->name, 0, 1));
                             if (!isset($header_first_letter) || (isset($header_first_letter) && $current_first_letter != $header_first_letter)) {
-                                echo '</ul>
-                        <h2>' . $current_first_letter . '</h2>
-                        <ul>';
+                            echo '</ul>';
+                        ?>
+                        <h2 id="{{ $current_first_letter }}">{{ $current_first_letter }}</h2>
+                        <ul>
+                        <?php
                             }
                             $header_first_letter = $current_first_letter;
                             ?>
